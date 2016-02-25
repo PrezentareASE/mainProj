@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
 
     <properties>
-        <app.final.name>FirstWebApp</app.final.name>
+        <app.final.name>mainProj</app.final.name>
         <spring.version>4.2.1.RELEASE</spring.version>
         <junit.version>4.11</junit.version>
         <org.junit>4.7.0</org.junit>

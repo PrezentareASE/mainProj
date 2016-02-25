@@ -14,32 +14,41 @@ public class FirstController{
     @Autowired
     HelloWorldClass helloWorldClass;
 
-    @RequestMapping(value = "/start.htm", method = RequestMethod.GET)
+
+    /*@RequestMapping(value = "/start", method = RequestMethod.GET)
     public String helloWorld(ModelMap model) {
-        System.out.println("into hello world method");
+
         String message = helloWorldClass.hello();
-        model.addAttribute("message",message);
+        model.addAttribute("message",message + ">>>>>>>>>>>from page mapping");
+        System.out.println(message);
+        return "start";
+    }*/
+
+    @RequestMapping(value = "/page", method = RequestMethod.GET)
+    public String helloWorld2(ModelMap model) {
+
+        String message = helloWorldClass.hello();
+        model.addAttribute("message",message + " AND from page mapping");
         System.out.println(message);
         return "start";
     }
 
-    @RequestMapping(value = "/page.htm", method = RequestMethod.GET)
-    public ModelAndView helloWorld2(ModelAndView model) {
-        System.out.println("into hello world method 2");
-
+    @RequestMapping(value = "/page2", method = RequestMethod.GET)
+    public String helloWorld3(ModelMap mp) {
+        System.out.println("into hello world method");
         String message = helloWorldClass.hello();
-        model.addObject("x", message);
-        return model;
+        mp.addAttribute("message",message + " AND from page2 mapping");
+        System.out.println(message);
+        return "start";
     }
 
-    @RequestMapping(value = "/page2", method = RequestMethod.GET)
-    public ModelAndView helloWorld3() {
-        System.out.println("into hello world method 3");
+    @RequestMapping(value = "/page3", method = RequestMethod.GET)
+    public String helloWorld4(ModelMap mp) {
+        System.out.println("into hello world method");
         String message = helloWorldClass.hello();
-        //model.addAttribute("x",message);
-        ModelAndView mv = new ModelAndView("page");
-        mv.addObject("x",message);
-        return mv;
+        mp.addAttribute("message",message + " AND from page3 mapping");
+        System.out.println(message);
+        return "page";
     }
     public FirstController(){
         super();

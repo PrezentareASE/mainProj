@@ -12,11 +12,11 @@ public class SecondController {
     @Autowired
     HelloWorldClass helloWorldClass;
 
-    @RequestMapping(value = "/start", method = RequestMethod.GET)
+    @RequestMapping(value = "/secondController", method = RequestMethod.GET)
     public String helloWorld(ModelMap model) {
         System.out.println("into hello world method");
         String message = helloWorldClass.hello();
-        model.addAttribute("message",message);
+        model.addAttribute("message",message+" AND from second controller");
         System.out.println(message);
         return "start";
     }

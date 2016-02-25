@@ -10,8 +10,8 @@ public class OtherObject {
 
     public OtherObject(){
         numar = 777;
-        text = "bla bla , de 3 ori bla";
-        System.out.println(">>>Other object");
+        text = "TEST";
+        System.out.println(">>>Other object<<<");
     }
 
     public int getNumar() {
