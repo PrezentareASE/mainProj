@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>FirstWebApp</groupId>
-  <artifactId>FirstWebApp</artifactId>
+  <artifactId>mainProj</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>FirstWebApp Maven Webapp</name>
+  <name>mainProj Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
     <properties>
@@ -15,6 +15,13 @@
         <org.junit>4.7.0</org.junit>
         <javax.servlet>1.2</javax.servlet>
         <commons-logging>1.1.3</commons-logging>
+        <!-- Logging -->
+        <logback.version>1.0.13</logback.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <!-- Test -->
+        <junit.version>4.11</junit.version>
+        <!-- AspectJ -->
+        <aspectj.version>1.7.4</aspectj.version>
     </properties>
 
   <dependencies>
@@ -46,6 +53,7 @@
           <version>${org.junit}</version>
           <scope>test</scope>
       </dependency>
+      <!-- Spring , Transactions, AOP -->
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-core</artifactId>
@@ -57,7 +65,11 @@
           <artifactId>spring-context</artifactId>
           <version>${spring.version}</version>
       </dependency>
-
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-aop</artifactId>
@@ -73,8 +85,55 @@
           <artifactId>spring-web</artifactId>
           <version>${spring.version}</version>
       </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
 
+      <!-- Logging with SLF4J & LogBack -->
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>${slf4j.version}</version>
+          <scope>compile</scope>
+      </dependency>
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>${logback.version}</version>
+          <scope>runtime</scope>
+      </dependency>
 
+      <!-- AspectJ dependencies -->
+      <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjrt</artifactId>
+          <version>${aspectj.version}</version>
+          <scope>runtime</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.aspectj</groupId>
+          <artifactId>aspectjtools</artifactId>
+          <version>${aspectj.version}</version>
+      </dependency>
+
+        <!-- MySQL -->
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis</artifactId>
+          <version>3.1.1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis-spring</artifactId>
+          <version>1.1.1</version>
+      </dependency>
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>5.1.21</version>
+      </dependency>
   </dependencies>
   <build>
     <finalName>${app.final.name}</finalName>
