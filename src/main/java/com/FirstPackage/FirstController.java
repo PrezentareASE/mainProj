@@ -14,6 +14,8 @@ public class FirstController{
     @Autowired
     HelloWorldClass helloWorldClass;
 
+    @Autowired
+    ErrorLogService errorLogService;
 
     /*@RequestMapping(value = "/start", method = RequestMethod.GET)
     public String helloWorld(ModelMap model) {
@@ -30,6 +32,11 @@ public class FirstController{
         String message = helloWorldClass.hello();
         model.addAttribute("message",message + " AND from page mapping");
         System.out.println(message);
+
+        ErrorLog el = new ErrorLog();
+        el.setText(message + " AND from page mapping");
+        errorLogService.insertMessage(el);
+
         return "start";
     }
 
