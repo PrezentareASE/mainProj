@@ -1,5 +1,6 @@
-package com.FirstPackage;
+package com.FirstPackage.mappers;
 
+import com.FirstPackage.ErrorLog;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;

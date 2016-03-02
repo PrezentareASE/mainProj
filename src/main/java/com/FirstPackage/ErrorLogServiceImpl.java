@@ -1,11 +1,15 @@
 package com.FirstPackage;
 
+import com.FirstPackage.mappers.ErrorLogMapper;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ErrorLogServiceImpl implements ErrorLogService {
 
     @Autowired
@@ -14,12 +18,23 @@ public class ErrorLogServiceImpl implements ErrorLogService {
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
 
+    @Autowired
+    SqlSessionFactory sqlSessionFactory;
+
     String QUERY=ErrorLogMapper.class.getName()+"insertMessage";
 
     public void insertMessage(ErrorLog errorLog) {
-        sqlSessionTemplate.insert(QUERY,errorLog);
-        /*int i=1;
-        errorLogMapper.insertMessage(errorLog);*/
+       /* int i=1;
+
+        SqlSession session = sqlSessionFactory.openSession();
+        ErrorLogMapper mapper = session.getMapper(ErrorLogMapper.class);
+        mapper.insertMessage(errorLog);
+        session.commit();
+        session.close();
+
+
+        sqlSessionTemplate.insert(QUERY,errorLog);*/
+        errorLogMapper.insertMessage(errorLog);
     }
 
     public ErrorLog getMessage(int id) {

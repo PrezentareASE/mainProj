@@ -1,6 +1,10 @@
 package com.FirstPackage;
 
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -17,6 +21,16 @@ public class FirstController{
     @Autowired
     ErrorLogService errorLogService;
 
+    @Autowired
+    @Qualifier("dataSource")
+    DriverManagerDataSource dataSource;
+
+    @Autowired
+    SqlSessionFactory sqlSessionFactory;
+
+    @Autowired
+    SqlSessionTemplate sqlSessionTemplate;
+
     /*@RequestMapping(value = "/start", method = RequestMethod.GET)
     public String helloWorld(ModelMap model) {
 
@@ -30,11 +44,11 @@ public class FirstController{
     public String helloWorld2(ModelMap model) {
 
         String message = helloWorldClass.hello();
-        model.addAttribute("message",message + " AND from page mapping");
+        model.addAttribute("message",message + " AND from page mapping "+(1 + (int)(Math.random() * 99999999)));
         System.out.println(message);
 
         ErrorLog el = new ErrorLog();
-        el.setText(message + " AND from page mapping");
+        el.setText(message + " AND from page mapping "+(1 + (int)(Math.random() * 99999999)));
         errorLogService.insertMessage(el);
 
         return "start";
@@ -44,7 +58,7 @@ public class FirstController{
     public String helloWorld3(ModelMap mp) {
         System.out.println("into hello world method");
         String message = helloWorldClass.hello();
-        mp.addAttribute("message",message + " AND from page2 mapping");
+        mp.addAttribute("message",message + " AND from page2 mapping "+(1 + (int)(Math.random() * 99999999)));
         System.out.println(message);
         return "start";
     }
@@ -53,7 +67,7 @@ public class FirstController{
     public String helloWorld4(ModelMap mp) {
         System.out.println("into hello world method");
         String message = helloWorldClass.hello();
-        mp.addAttribute("message",message + " AND from page3 mapping");
+        mp.addAttribute("message",message + " AND from page3 mapping "+(1 + (int)(Math.random() * 99999999)));
         System.out.println(message);
         return "page";
     }

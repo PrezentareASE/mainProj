@@ -13,10 +13,10 @@
     <!-- Configure Aspect Beans, without this Aspects advices wont execute -->
     <bean name="employeeAspect" class="com.FirstPackage.AOPExample" />
 
-    <!-- MyBatis -->
+    <!-- MyBatis
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="jdbc" />
-    </bean>
+    <property name="basename" value="jdbc" />
+</bean>-->
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -28,7 +28,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="typeAliasesPackage" value="com.FirstPackage"/>
-        <!--<property name="mapperLocations" value="classpath*:com/FirstPackage/*.xml" />-->
+        <!--<property name="mapperLocations" value="classpath*:com/FirstPackage/mappers/*.java" />-->
     </bean>
 
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
@@ -36,7 +36,7 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.FirstPackage" />
+        <property name="basePackage" value="com.FirstPackage.mappers" />
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager" />
