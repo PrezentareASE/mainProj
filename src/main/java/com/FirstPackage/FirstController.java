@@ -56,7 +56,6 @@ public class FirstController{
 
     @RequestMapping(value = "/page2", method = RequestMethod.GET)
     public String helloWorld3(ModelMap mp) {
-        System.out.println("into hello world method");
         String message = helloWorldClass.hello();
         mp.addAttribute("message",message + " AND from page2 mapping "+(1 + (int)(Math.random() * 99999999)));
         System.out.println(message);
@@ -68,6 +67,7 @@ public class FirstController{
         System.out.println("into hello world method");
         String message = helloWorldClass.hello();
         mp.addAttribute("message",message + " AND from page3 mapping "+(1 + (int)(Math.random() * 99999999)));
+        mp.addAttribute("list",getAllMessages());
         System.out.println(message);
         return "page";
     }
@@ -76,4 +76,11 @@ public class FirstController{
         //System.out.println("FirstController");
     }
 
+    private String getAllMessages(){
+        String result="";
+        for(ErrorLog el:errorLogService.getMessages()){
+            result=result+"<tr><td>"+el.getId()+"</td><td>"+el.getText()+"</td></tr>";
+        }
+        return result;
+    }
 }
