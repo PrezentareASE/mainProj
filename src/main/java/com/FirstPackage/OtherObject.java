@@ -11,7 +11,7 @@ public class OtherObject {
     public OtherObject(){
         numar = 777;
         text = "TEST";
-        System.out.println(">>>Other object<<<");
+        System.out.println(">>>Other object was generated<<<");
     }
 
     public int getNumar() {

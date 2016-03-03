@@ -24,7 +24,7 @@ public class SecondController {
 
     public SecondController(){
         super();
-        //System.out.println("SecondController");
+        System.out.println("*SecondController");
     }
 
 }

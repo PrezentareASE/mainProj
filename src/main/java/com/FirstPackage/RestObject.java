@@ -15,8 +15,8 @@ public class RestObject {
     private int id=7;
     private String description = "description";
     private List<OtherObject> lst = new ArrayList<OtherObject>();
-    public void init(){
-        //System.out.println(obj.toString());
+    public void addThreeElements(){
+        System.out.println(obj.toString());
         lst.add(obj);
         lst.add(obj);
         lst.add(obj);

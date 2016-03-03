@@ -24,16 +24,13 @@ public class ErrorLogServiceImpl implements ErrorLogService {
     String QUERY=ErrorLogMapper.class.getName()+"insertMessage";
 
     public void insertMessage(ErrorLog errorLog) {
-       /* int i=1;
-
+       /*
         SqlSession session = sqlSessionFactory.openSession();
         ErrorLogMapper mapper = session.getMapper(ErrorLogMapper.class);
         mapper.insertMessage(errorLog);
         session.commit();
         session.close();
-
-
-        sqlSessionTemplate.insert(QUERY,errorLog);*/
+        */
         errorLogMapper.insertMessage(errorLog);
     }
 

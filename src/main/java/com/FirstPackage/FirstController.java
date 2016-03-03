@@ -31,33 +31,24 @@ public class FirstController{
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
 
-    /*@RequestMapping(value = "/start", method = RequestMethod.GET)
-    public String helloWorld(ModelMap model) {
-
-        String message = helloWorldClass.hello();
-        model.addAttribute("message",message + ">>>>>>>>>>>from page mapping");
-        System.out.println(message);
-        return "start";
-    }*/
-
     @RequestMapping(value = "/page", method = RequestMethod.GET)
     public String helloWorld2(ModelMap model) {
 
         String message = helloWorldClass.hello();
-        model.addAttribute("message",message + " AND from page mapping "+(1 + (int)(Math.random() * 99999999)));
+        model.addAttribute("message",message + " AND from page mapping ");
         System.out.println(message);
 
         ErrorLog el = new ErrorLog();
-        el.setText(message + " AND from page mapping "+(1 + (int)(Math.random() * 99999999)));
+        el.setText(message + " AND from page mapping ");
         errorLogService.insertMessage(el);
 
         return "start";
     }
 
-    @RequestMapping(value = "/page2", method = RequestMethod.GET)
+    @RequestMapping(value = "page2.html", method = RequestMethod.GET)
     public String helloWorld3(ModelMap mp) {
         String message = helloWorldClass.hello();
-        mp.addAttribute("message",message + " AND from page2 mapping "+(1 + (int)(Math.random() * 99999999)));
+        mp.addAttribute("message",message + " AND from page2 mapping ");
         System.out.println(message);
         return "start";
     }
@@ -66,14 +57,14 @@ public class FirstController{
     public String helloWorld4(ModelMap mp) {
         System.out.println("into hello world method");
         String message = helloWorldClass.hello();
-        mp.addAttribute("message",message + " AND from page3 mapping "+(1 + (int)(Math.random() * 99999999)));
+        mp.addAttribute("message",message + " AND from page3 mapping ");
         mp.addAttribute("list",getAllMessages());
         System.out.println(message);
         return "page";
     }
     public FirstController(){
         super();
-        //System.out.println("FirstController");
+        System.out.println("*FirstController");
     }
 
     private String getAllMessages(){

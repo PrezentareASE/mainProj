@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/rest")
 public class WebServiceRest {
+
     @Autowired
     RestObject ro;
 
-
     @RequestMapping(method = RequestMethod.GET)
     public RestObject select(){
-        ro.init();
+        ro.addThreeElements();
         return ro;
     }
 
